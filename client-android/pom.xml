@@ -20,7 +20,7 @@
         <platform.version>8.0.0</platform.version>
         <presenters.version>1.7</presenters.version>
         <android.plugin.version>4.6.0</android.plugin.version>
-        <android.platform.version>26</android.platform.version>
+        <android.platform.version>23</android.platform.version>
         <debug>false</debug>
     </properties>
     <build>
