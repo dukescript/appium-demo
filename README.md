@@ -91,7 +91,7 @@ Add something like this to your AndroidMain:
 ```
 
 
-In order to make your Activity the main Activity which is started first, you need to register it in
+Also make sure you remove the private cosntructor if there is one, otherwise your Activity won't start. In order to make your Activity the main Activity which is started first, you need to register it in
 the AndroidManifest.xml:
 
 
@@ -134,13 +134,13 @@ In your android client project make sure you change the android version number. 
 
 
 By default a much older version is used (4.x.x), because it's the only one in Maven Central.
-Make sure to use the "Maven Android SDK Deployer" first, as described above to populate your local repo with the required dependencies.
+Make sure to use the "Maven Android SDK Deployer" first, as described above to populate your 
+local repo with the required dependencies.
 
 
+Then you should be ready to run your tests on Android devices with Appium. 
+
+This little demo project is work in progress. Stay tuned for learning how to run the same tests on ios devices.
 
 
-
-  
-
-
-
+Enjoy DukeScript!
