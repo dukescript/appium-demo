@@ -59,18 +59,20 @@ Now you can finally clone this repository and build it from your IDE, or use the
 
     mvn install
 
-The application should build, and the integration test should succeed.#
+The application should build, and the integration test should succeed.
 
 ## How does it work in my application?
 
-The important parts to make it work in your application is to enable web debugging in 
+The most important step to make it work in your own application is to enable web debugging in 
 Android WebViews. This is done via:
 
 
              WebView.setWebContentsDebuggingEnabled(true);
 
 
-You can do that by [starting the application from your own Activity](http://www.dukescript.com/best/practices/2015/11/20/AndroidBoot.html).
+You need to do that, before the the DukeScript Android Presenter launches the WebView containing your view.
+By default your application class (AndroidMain in the Maven Archetypes) is invoked after that. 
+But luckily you can [change the boot sequence and start the application from your own Activity](http://www.dukescript.com/best/practices/2015/11/20/AndroidBoot.html).
 Add something like this to your AndroidMain:
 
 
@@ -89,7 +91,6 @@ Add something like this to your AndroidMain:
         finish();
     }
 ```
-
 
 Also make sure you remove the private cosntructor if there is one, otherwise your Activity won't start. In order to make your Activity the main Activity which is started first, you need to register it in
 the AndroidManifest.xml:
@@ -125,7 +126,7 @@ the AndroidManifest.xml:
     </application>
 ```
 
-Make sure you remove the intent-filter part in the registration of the old main activity.
+Make sure you remove the intent-filter part from the old main activity and put it in the new one (your Activity).
 
 In your android client project make sure you change the android version number. You can find it in the properties section of your pom:
 
