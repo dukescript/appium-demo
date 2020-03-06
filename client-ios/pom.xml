@@ -19,8 +19,9 @@
     <properties>
         <project.mainclass>com.dukescript.demo.iOSMain</project.mainclass>
         <netbeans.compile.on.save>none</netbeans.compile.on.save>
-        <robovm.version>2.3.5</robovm.version>
-        <presenters.version>1.7</presenters.version>
+        <robovm.version>2.3.8</robovm.version>
+        <presenters.version>1.7</presenters.version>        
+        <robovm.arch>arm64</robovm.arch>     
     </properties>
     <build>
         <plugins>
@@ -253,6 +254,12 @@
             <artifactId>robovm-rt</artifactId>
             <version>${robovm.version}</version>
             <type>jar</type>
+        </dependency>
+        <dependency>  
+            <groupId>org.netbeans.html</groupId>  
+            <artifactId>generic</artifactId>  
+            <version>${net.java.html.version}</version>  
+            <scope>runtime</scope>  
         </dependency>
     </dependencies>
 </project>

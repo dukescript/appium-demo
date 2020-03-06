@@ -15,6 +15,7 @@ You can do so using the Maven Android SDK Deployer:
 
 https://github.com/simpligility/maven-android-sdk-deployer
 
+
 ## Setup Appium
 
 The most important step for running your integration tests locally is to setup Appium. 
@@ -36,10 +37,47 @@ Now you can start appium simply by typing:
     appium
 
 
+### iOS
+
+For running tests on an iOS device, you need to run the tests on a Mac. If you don't have
+one, you should disable the iOSIntegrationTest.java. You can find it in submodule "integration-testing"
+(src/main/test/java/com/dukescript/demo/integration/testing/iOSIntegrationTest.java).
+You should also remove the submodule client-ios from the root pom.xml.
+
+
+```xml
+    <modules>
+        <module>client</module>
+        <module>client-android</module>
+<!--        <module>client-ios</module>-->
+        <module>js</module>
+        <module>integration-testing</module>
+    </modules>
+
+```
+If you do have a mac and want to run the test, you need to do some preparations.
+These steps are described in more detail [here](http://appium.io/docs/en/drivers/ios-xcuitest-real-devices/).
+Before running the test make sure you build the IPA:
+ 
+
+    > mvn clean package robovm:create-ipa
+
+Also replace the UDID to poin to the proper device:
+
+
+    capabilities.setCapability(MobileCapabilityType.UDID, "<udid>");
+
+
+After that, the test should run. 
+
+
+## Troubleshooting
+
 If you have any appium related issues when getting started (which is not unlikely),
  please refer to google to solve them. 
 Fortunately appium is popular, and chances are high
-someone else had the same issue and solved it. 
+someone else had the same issue and solved it. I, for example had to download and configure a 
+specific chromedriver to work with chrome libraries used on my Android device
 
 ## Prepare device
 

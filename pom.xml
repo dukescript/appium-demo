@@ -13,9 +13,9 @@
         <module>client</module>
         <!--<module>client-web</module>-->
         <module>client-android</module>
-<!--        <module>client-ios</module>-->
         <module>js</module>
         <module>integration-testing</module>
+        <module>client-ios</module>
     </modules>
     <properties>
         <net.java.html.version>1.7</net.java.html.version>
